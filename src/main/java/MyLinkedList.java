@@ -44,8 +44,10 @@ public class MyLinkedList<T> {
 	 * @param element
 	 */
 	public void insertHead(T element) {
-		if (size == 0)
+		if (size == 0) {
 			add(element);
+			return;
+		}
 		Node<T> newHead = new Node<>(element);
 		newHead.next = this.head;
 		this.head = newHead;
@@ -57,8 +59,10 @@ public class MyLinkedList<T> {
 	 * @param element
 	 */
 	public void insertTail(T element) {
-		if (size == 0)
+		if (size == 0) {
 			add(element);
+			return;
+		}
 		Node<T> newTail = new Node<>(element);
 		tail.next = newTail;
 		tail = newTail;
