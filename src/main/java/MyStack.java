@@ -1,4 +1,4 @@
-public class Stack<T> {
+public class MyStack<T> {
 
 	private Node<T> head;
 
