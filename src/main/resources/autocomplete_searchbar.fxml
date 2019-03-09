@@ -7,17 +7,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane prefHeight="500.0" prefWidth="740.0"
-			xmlns="http://javafx.com/javafx/9.0.1"
-			xmlns:fx="http://javafx.com/fxml/1"
-			fx:controller="fun.AutoSearchbarController">
+<BorderPane prefHeight="500.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fun.AutoSearchbarController">
    <center>
-      <ListView fx:id="searchResults" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="searchRecommendations" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <HBox spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="searchBar" HBox.hgrow="ALWAYS">
+            <TextField fx:id="searchBar" onAction="#addWord" onKeyReleased="#updateRecommendations" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

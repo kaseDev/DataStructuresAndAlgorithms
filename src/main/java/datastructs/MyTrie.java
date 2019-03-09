@@ -15,9 +15,11 @@ public class MyTrie {
 		curNode = root;
 	}
 
+	/**
+	 * TODO error check to make sure argument is always a word
+	 * @param word
+	 */
 	public void insertWord(String word) {
-		if (isWord(word))
-			return;
 		Node curInsertNode = root;
 		for (char character : word.toLowerCase().toCharArray()) {
 			if (!curInsertNode.hasChild(character))
@@ -25,10 +27,6 @@ public class MyTrie {
 			curInsertNode = curInsertNode.children.get(character);
 		}
 		curInsertNode.terminate = true;
-	}
-
-	private boolean isWord(String value) {
-		return !(value.contains(" ") || value.contains("\n") || value.contains("\t"));
 	}
 
 	public void toRoot() {
@@ -46,6 +44,15 @@ public class MyTrie {
 		if (!curNode.children.containsKey(character))
 			return false;
 		curNode = curNode.children.get(character);
+		return true;
+	}
+
+	public boolean goToString(String string) {
+		curNode = root;
+		for (char chr : string.toCharArray()) {
+			if (!toChild(chr))
+				return false;
+		}
 		return true;
 	}
 
@@ -68,7 +75,7 @@ public class MyTrie {
 		stack.push(curNode);
 		while (!stack.isEmpty()) {
 			Node progress = stack.pop();
-			for (Node child : root.children.values())
+			for (Node child : progress.children.values())
 				stack.push(child);
 			if (progress.terminate)
 				words.add(getStringFrom(progress));
@@ -82,7 +89,7 @@ public class MyTrie {
 		stack.push(curNode);
 		while (!stack.isEmpty() && words.size() < length) {
 			Node progress = stack.pop();
-			for (Node child : root.children.values())
+			for (Node child : progress.children.values())
 				stack.push(child);
 			if (progress.terminate)
 				words.add(getStringFrom(progress));
