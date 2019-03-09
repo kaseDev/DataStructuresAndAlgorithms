@@ -1,3 +1,5 @@
+package datastructs;
+
 public class MyLinkedList<T> {
 
 	private Node<T> head;

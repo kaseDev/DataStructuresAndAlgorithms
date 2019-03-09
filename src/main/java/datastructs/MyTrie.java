@@ -1,3 +1,5 @@
+package datastructs;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,7 +49,7 @@ public class MyTrie {
 		return true;
 	}
 
-	public String getCurString(Node node) {
+	private String getStringFrom(Node node) {
 		LinkedList<Character> charList = new LinkedList<>();
 		Node curStringNode = node;
 		while (curStringNode.parent != null) {
@@ -69,7 +71,7 @@ public class MyTrie {
 			for (Node child : root.children.values())
 				stack.push(child);
 			if (progress.terminate)
-				words.add(getCurString(progress));
+				words.add(getStringFrom(progress));
 		}
 		return words.toArray(new String[0]);
 	}
@@ -83,7 +85,7 @@ public class MyTrie {
 			for (Node child : root.children.values())
 				stack.push(child);
 			if (progress.terminate)
-				words.add(getCurString(progress));
+				words.add(getStringFrom(progress));
 		}
 		return words.toArray(new String[0]);
 	}

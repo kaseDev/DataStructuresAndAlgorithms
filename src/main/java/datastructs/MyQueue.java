@@ -1,18 +1,21 @@
-public class MyStack<T> {
+package datastructs;
+
+public class MyQueue<T> {
 
 	private Node<T> head;
+	private Node<T> tail;
 
-	public void push(T value) {
+	public void enqueue(T element) {
 		if (head == null) {
-			head = new Node<>(value);
+			head = new Node<>(element);
+			tail = head;
 			return;
 		}
-		Node<T> newHead = new Node<>(value);
-		newHead.next = head;
-		head = newHead;
+		tail.next = new Node<>(element);
+		tail = tail.next;
 	}
 
-	public T pop() {
+	public T dequeue() {
 		if (head == null)
 			return null;
 		T value = head.value;
