@@ -29,6 +29,10 @@ public class MyQueue<T> {
 		return head.value;
 	}
 
+	public boolean isEmpty() {
+		return head == null;
+	}
+
 	private class Node<K> {
 		private K value;
 		private Node<K> next;
