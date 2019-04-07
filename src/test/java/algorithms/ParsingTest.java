@@ -7,21 +7,21 @@ public class ParsingTest {
 
 	@Test
 	public void testSingleBracketTypeWellFormed() {
-		Assertions.assertTrue(Parsing.validateParentesis("(()((()))())"));
+		Assertions.assertTrue(Parsing.validateParentheses("(()((()))())"));
 	}
 
 	@Test
 	public void testMultipleBracketTypesWellFormed() {
-		Assertions.assertTrue(Parsing.validateParentesis("{[{}([]{})[]]{}}"));
+		Assertions.assertTrue(Parsing.validateParentheses("{[{}([]{})[]]{}}"));
 	}
 
 	@Test
 	public void testMultipleBracketTypesMisFormed() {
-		Assertions.assertFalse(Parsing.validateParentesis("((()){}})"));
+		Assertions.assertFalse(Parsing.validateParentheses("((()){}})"));
 	}
 
 	@Test
 	public void testMultipleBracketTypesMisMatched() {
-		Assertions.assertFalse(Parsing.validateParentesis("(()){}[][}"));
+		Assertions.assertFalse(Parsing.validateParentheses("(()){}[][}"));
 	}
 }

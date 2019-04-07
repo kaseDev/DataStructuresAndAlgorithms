@@ -10,7 +10,7 @@ public class Parsing {
 	 * This algorithm will accept a string made up of any kind of bracket
 	 * and return true if all the strings are well formed or not.
 	 */
-	public static boolean validateParentesis(String brackets) {
+	public static boolean validateParentheses(String brackets) {
 		MyStack<Integer> brackstack = new MyStack<>();
 		for (char bracket : brackets.toCharArray()) {
 			BracketType type = getBracketType(bracket);
